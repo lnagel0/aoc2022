@@ -5,7 +5,6 @@ parsedCookies = []
 elvesAmount = []
 
 currentCalories = 0
-counter = 0
 counter2 = 0
 
 for line in input:
@@ -24,15 +23,10 @@ for cookie in parsedCookies:
         elvesAmount.append(currentCalories)
         currentCalories = 0
 
-for amount in elvesAmount:
-    if amount > counter:
-        counter = amount
+elvesAmount.sort(reverse=True)
 
-for amount in elvesAmount:
-    if amount != counter:
-        counter2 += 1
-    elif amount == counter:
-        counter2 += 1
-        break
+print("The elf with the highest calories is carrying a total of ", elvesAmount[0], " calories.")
+print("The 2nd elf with the highest calories is carrying a total of ", elvesAmount[1], " calories.")
+print("The 3rd elf with the highest calories is carrying a total of ", elvesAmount[2], " calories. \n")
 
-print("The elf with the highest calories is the elf number ", counter2, " carrying a total of ", counter, " calories.")
+print("In total, they're carrying ", elvesAmount[0] + elvesAmount[1] + elvesAmount[2], " calories.")
