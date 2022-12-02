@@ -30,3 +30,5 @@ print("The 2nd elf with the highest calories is carrying a total of ", elvesAmou
 print("The 3rd elf with the highest calories is carrying a total of ", elvesAmount[2], " calories. \n")
 
 print("In total, they're carrying ", elvesAmount[0] + elvesAmount[1] + elvesAmount[2], " calories.")
+
+input.close()
