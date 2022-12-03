@@ -43,4 +43,4 @@ for item in matchingItems:
 for item in slicedMatching:
     prioritySum += eval(item)
 
-print('The total sum of the priorities is', prioritySum)
+print('The total sum of the priorities is', prioritySum, ' for the first part of the problem.')
