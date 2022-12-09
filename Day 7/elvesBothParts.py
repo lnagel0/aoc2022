@@ -8,6 +8,12 @@ score = 0
 dirSizes = {}
 path = ['root']
 score = 0
+spaceUsed = 0
+
+maxSpace = 70000000
+reqFreeSpace = 30000000
+dirToDeleteSpace = 0
+freeSpace = 0
 
 slash = '/'
 
@@ -19,15 +25,16 @@ for line in parsedInput:
     if 'dir' in line:
         a, dirName = line.split()
     
-    elif 'cd' in line:
+        test = line.split()
+    elif '$ cd' in line:
         if 'cd /' in line:
-            path = []
+            path = ['root']
         elif 'cd ' in line and 'cd ..' not in line:
             a, b, pathName = line.split()
             path.append(pathName)
-        elif 'cd ..' in line and path != []:
+        elif 'cd ..' in line and path != ['root']:
             path.pop(len(path) - 1)
-        elif 'cd ..' in line and path == []:
+        elif 'cd ..' in line and path == ['root']:
             path = ['root']
     elif '$ ls' in line:
         pass
@@ -51,4 +58,14 @@ for dir in dirSizes:
     if int(dirSizes[dir]) <= 100000:
         score += int(dirSizes[dir])
 
-print(score)
+freeSpace = maxSpace - int(dirSizes['root'])
+
+dirToDeleteSpace = reqFreeSpace - freeSpace
+
+candidates = []
+
+for dir in dirSizes:
+    if int(dirSizes[dir]) > dirToDeleteSpace:
+        print(dirSizes[dir])
+
+string = '234925 gjsnzbtw.ncd'
