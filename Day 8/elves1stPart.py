@@ -1,8 +1,8 @@
 input = open("input.txt", encoding="utf-8")
 
 parsedInput = []
-array2d = []
-array2d2 = []
+array2d = [] # rows
+array2d2 = [] # columns
 i = 0
 j = 0
 highestTree = 0
